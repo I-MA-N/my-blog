@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   @font-face {
+      font-family: 'Vazir';
+      src: url("../fonts/Vazir.ttf");
+   }
+
+   @font-face {
+      font-family: 'OpenSans';
+      src: url("../fonts/OpenSans.ttf");
+   }
+
+   /* To avoid setting style on autofill */
+   input:-webkit-autofill,
+   input:-webkit-autofill:focus {
+      transition: background-color 0s 600000s, color 0s 600000s !important;
+   }
+
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+   }
+
+   /* Firefox */
+   input[type=number] {
+      -moz-appearance: textfield;
+   }
+}
+
+@layer components {
+   .btn {
+      @apply inline-block bg-black py-2 px-6 text-lg rounded-2xl hover:scale-110 transition-all duration-200;
+   }
+
+   .form-btn {
+      @apply mt-6 text-white bg-gray-700 border border-transparent hover:border-red-500 transition-all duration-200 rounded-lg py-2.5 text-center;
+   }
+
+   .img-div {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      position: absolute;
+      z-index: -10;
+   }
+
+   .img-div::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+   }
+
+   .admin-link {
+      @apply flex items-center justify-between border-r border-white pr-3 hover:pr-4 transition-all duration-200;
+   }
+   .admin-link:hover svg {
+      @apply text-red-500 transition-colors duration-200;
+   }
+}
+
+@layer utilities {
+   .text-rotate {
+      writing-mode: vertical-rl;
+   }
+
+   .min-h-screen-smaller {
+      min-height: calc(100vh - 48px);
+   }
+}
